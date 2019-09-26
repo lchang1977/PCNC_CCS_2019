@@ -1,0 +1,31 @@
+(* Policy *)
+((
+  (filter (not (switch = 346653522121)) or
+    (switch = 346653522121 and
+     (
+      (vlanId = 1000 and ip4Dst = 104.16.65.50 and tcpDstPort = 443) or 
+      (vlanId = 1000 and ip4Dst = 104.16.66.50 and tcpDstPort = 443) or 
+       ipProto = 17
+     )
+    )
+  );
+    (if switch = 346653522121 
+        then (port:=1)
+        else port := 55555
+    )
+));
+
++
+(* Back Propagation *)
+(if switch = 346653522121
+    then (
+             filter 
+                    (
+                        ip4Src = 104.16.65.50 or 
+                        ip4Src = 104.16.66.50 or 
+                        ipProto = 17
+                    );
+                    port:=2
+         )
+        else port := 55555
+);

@@ -1,0 +1,23 @@
+This directory contains all the files needed to test the scenario with.
+The Topology directory contains the python script that runs Mininet with
+the topology depicted in the paper. The Netkat folder contains the two
+netkat python files that are used prior to and after the reconfiguration
+of the network.
+
+There are two sets of the NetKAT code (one written in python and the
+other written in the surface syntax). The surface syntax policies caused
+a BadPreReq when testing with Mininet, so testing was done using the
+python implementations.
+
+Prereqs: Mininet, Frenetic, and PCNC
+
+Running the Mininet topology: python PCNC_Scenario.py <controller ip> <controller port>
+
+Running the Python Configuration:
+    frenetic http-controller --openflow-port <controller port>
+    python InitialConfig.py
+    python Reconfig.py
+
+Running the Surface Syntax:
+    frenetic openflow13 --openflow-port <controller port> --policy-file InitialConfig.kat
+    frenetic openflow13 --openflow-port <controller port> --policy-file Reconfig.kat

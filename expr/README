@@ -1,0 +1,18 @@
+This repo contains four folders:
+A) IoT_apps_Lifecycle
+B) Proof_of_concept_pcap_files
+  1) Initial_configuration
+  2) Reconfiguration
+C) netkatcode
+D) MininetTest
+
+IoT_apps_Lifecycle: It contains network traffic data of iHealth and fitbit app in the form of pcap files from Wireshark.
+The purpose of this network traffic data is to find out the Internet endpoints where the apps were communicating.
+This metadata is used in the initial and reconfiguration policy.
+
+Proof_of_concept_pcap_files: It contains network traffic pcap data at egress and ingress ports of OVS both during initial and reconfiguration.
+The data can be found in Initial_configuration and Reconfiguration folders.
+
+netkatcode: It contain NETKAT frenetic code in both the surface syntax and python APIs for both initial and reconfiguration policy.
+
+MininetTest: The stuff used to test the policy within mininet.

@@ -1,0 +1,31 @@
+{
+  "ty":
+    "(Install(Program\"(filter (not (switch = 3)) or (ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17);(if switch = 3 then port := 1 else (if switch = 4 then (if ip4Dst = 10.0.0.3 then port := 3 else port := 4) else port := 2))) + (filter ip4Dst = 10.0.0.1 or ip4Dst = 10.0.0.2; (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))\"))",
+  "exp":
+    "(Apply(TyApply(Var run)(Install(Program\"(filter (not (switch = 3)) or (ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17);(if switch = 3 then port := 1 else (if switch = 4 then (if ip4Dst = 10.0.0.3 then port := 3 else port := 4) else port := 2))) + (filter ip4Dst = 10.0.0.1 or ip4Dst = 10.0.0.2; (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))\")))(Bind perm_r(Var Perm_u)(Apply(TyApply(Var perm_r)(Program\"(filter (not (switch = 3)) or (ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17);(if switch = 3 then port := 1 else (if switch = 4 then (if ip4Dst = 10.0.0.3 then port := 3 else port := 4) else port := 2))) + (filter ip4Dst = 10.0.0.1 or ip4Dst = 10.0.0.2; (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))\"))(Bind perm_u(Var Perm_r)(Apply(TyApply(Var perm_u)(Program\"(filter (not (switch = 3)) or (ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17);(if switch = 3 then port := 1 else (if switch = 4 then (if ip4Dst = 10.0.0.3 then port := 3 else port := 4) else port := 2))) + (filter ip4Dst = 10.0.0.1 or ip4Dst = 10.0.0.2; (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))\"))(Var action))))))",
+  "tenv": [
+    {
+      "key": "Perm_r",
+      "type":
+        "(Says(Principal MuxjKQbFhXmhfUOw26QiqccJEJPkZcP1sSQAMvH6GRs=)(Forall X(Fun(Says(Principal RuVhzhI/kZdcPEmO3WwA3XzfHBAjvQzqL7ZCZbxLnrM=)(Install(TVar X)))(Says(Principal MuxjKQbFhXmhfUOw26QiqccJEJPkZcP1sSQAMvH6GRs=)(Install(TVar X))))))"
+    },
+    {
+      "key": "Perm_u",
+      "type":
+        "(Says(Principal a/1BSHxDqj9lrKmlGMA4zjort5HuVBRmXgenDN4qvrQ=)(Forall X(Fun(Says(Principal MuxjKQbFhXmhfUOw26QiqccJEJPkZcP1sSQAMvH6GRs=)(Install(TVar X)))(Says(Principal a/1BSHxDqj9lrKmlGMA4zjort5HuVBRmXgenDN4qvrQ=)(Install(TVar X))))))"
+    },
+    {
+      "key": "action",
+      "type":
+        "(Says(Principal RuVhzhI/kZdcPEmO3WwA3XzfHBAjvQzqL7ZCZbxLnrM=)(Install(Program\"(filter (not (switch = 3)) or (ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17);(if switch = 3 then port := 1 else (if switch = 4 then (if ip4Dst = 10.0.0.3 then port := 3 else port := 4) else port := 2))) + (filter ip4Dst = 10.0.0.1 or ip4Dst = 10.0.0.2; (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))\")))"
+    },
+    {
+      "key": "run",
+      "type":
+        "(Forall X(Fun(Says(Principal a/1BSHxDqj9lrKmlGMA4zjort5HuVBRmXgenDN4qvrQ=)(TVar X))(TVar X)))"
+    }
+  ],
+  "tscope": [],
+  "prog":
+    "(filter (not (switch = 3)) or (ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17);(if switch = 3 then port := 1 else (if switch = 4 then (if ip4Dst = 10.0.0.3 then port := 3 else port := 4) else port := 2))) + (filter ip4Dst = 10.0.0.1 or ip4Dst = 10.0.0.2; (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))"
+}

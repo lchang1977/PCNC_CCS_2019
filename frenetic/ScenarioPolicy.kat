@@ -1,0 +1,18 @@
+(* Policy *)
+((filter (not (switch = 3)) 
+        or (ethDst = 00:00:00:00:00:03 and tcpDstPort = 10000 and ipProto = 17) 
+        or (ethDst = 00:00:00:00:00:04 and tcpDstPort = 11000 and ipProto = 17);
+    filter (ethDst = 00:00:00:00:00:03 or ethDst = 00:00:00:00:00:04);
+    (if switch = 4 
+        then (if ethDst = 00:00:00:00:00:03 then port := 3 else port := 4)
+        else (if switch = 3 
+            then (filter (ethDst = 00:00:00:00:00:03 or ethDst = 00:00:00:00:00:04); port := 1) 
+            else (port := 2))));
+
+(* Topology *)
+(*((1@2=>3@3) + (3@3=>1@2) + (2@2=>3@2) + (3@2=>2@2) + (3@1=>4@1) + (4@1=>3@1));*)
+
+(* Back Propagation *)
+(if switch = 3
+    then (if ethDst = 00:00:00:00:00:01 then port := 3 else port := 2)
+    else port := 1))*

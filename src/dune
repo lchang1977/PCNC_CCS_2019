@@ -1,0 +1,6 @@
+(executable
+ (name nal)
+ (libraries core sexplib yojson)
+ (flags (:standard -unsafe-string))
+ (preprocess
+  (pps ppx_deriving.std ppx_sexp_conv)))

@@ -1,0 +1,25 @@
+{
+  "ty":
+    "(Says(Principal FcC3bAPSaKshn7sJKyy6hyk5T1u5mthkmqx6tPJ81ug=)(Install(Program\"(((filter (not (switch = 3)) or (switch = 3 and ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (switch = 3 and ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17)); if switch = 3 then port := 1 else (port := 2)); ((1@2=>3@3) + (3@3=>1@2) + (2@2=>3@2) + (3@2=>2@2) + (3@1=>4@1) + (4@1=>3@1)); (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))*\")))",
+  "exp":
+    "(Bind config(Var delegate_cred)(Apply(TyApply(Var config)(Program\"(((filter (not (switch = 3)) or (switch = 3 and ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (switch = 3 and ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17)); if switch = 3 then port := 1 else (port := 2)); ((1@2=>3@3) + (3@3=>1@2) + (2@2=>3@2) + (3@2=>2@2) + (3@1=>4@1) + (4@1=>3@1)); (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))*\"))(Var install_cred)))",
+  "tenv": [
+    {
+      "key": "delegate_cred",
+      "type":
+        "(Says(Principal FcC3bAPSaKshn7sJKyy6hyk5T1u5mthkmqx6tPJ81ug=)(Forall X(Fun(Says(Principal ADgUfXBPW5nfzj3CK6Qyqdvzi4HlTU3IaBXPYqINOa4=)(Install(TVar X)))(Says(Principal FcC3bAPSaKshn7sJKyy6hyk5T1u5mthkmqx6tPJ81ug=)(Install(TVar X))))))",
+      "enc":
+        "Pku5+YYx5mOLfj6Ndbeo3+gIBqrIlBfhoQbhcp4R2/AH9OQx4ZsiPqz4J39gk64wdvrnnTLY6kiUIilBXxjCBQ==\n"
+    },
+    {
+      "key": "install_cred",
+      "type":
+        "(Says(Principal ADgUfXBPW5nfzj3CK6Qyqdvzi4HlTU3IaBXPYqINOa4=)(Install(Program\"(((filter (not (switch = 3)) or (switch = 3 and ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (switch = 3 and ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17)); if switch = 3 then port := 1 else (port := 2)); ((1@2=>3@3) + (3@3=>1@2) + (2@2=>3@2) + (3@2=>2@2) + (3@1=>4@1) + (4@1=>3@1)); (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))*\")))",
+      "enc":
+        "leQ0zu4pBb0a9VlUkft+TJAW4l1Jg0lTRTL3cN2XvTbHsj1BWwKbSK/UqGe4wKAsUqJEGhsGF/qs13XDmaWsAw==\n"
+    }
+  ],
+  "tscope": [],
+  "prog":
+    "(((filter (not (switch = 3)) or (switch = 3 and ip4Dst = 10.0.0.3 and tcpDstPort = 10000 and ipProto = 17) or (switch = 3 and ip4Dst = 10.0.0.4 and tcpDstPort = 11000 and ipProto = 17)); if switch = 3 then port := 1 else (port := 2)); ((1@2=>3@3) + (3@3=>1@2) + (2@2=>3@2) + (3@2=>2@2) + (3@1=>4@1) + (4@1=>3@1)); (if switch = 3 then (if ip4Dst = 10.0.0.1 then port := 3 else port := 2) else port := 1))*"
+}

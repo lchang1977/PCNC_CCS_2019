@@ -1,0 +1,26 @@
+{
+  "ty":
+    "(Says(Principal FcC3bAPSaKshn7sJKyy6hyk5T1u5mthkmqx6tPJ81ug=)(Extend(Program\"(filter (not (switch = 346653522121)) or (switch = 346653522121 and ((vlanId=1000 and ip4Dst=104.16.65.50 and tcpDstPort=443) or (vlanId=1000 and ip4Dst=104.16.66.50 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=89.30.121.150 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=151.101.146.217 and tcpDstPort=443) or ipProto = 17)))\")))",
+  "exp":
+    "(Bind bobconfig(Var fedmem_cred)(Apply(TyApply(Var bobconfig)(Program\"(filter (not (switch = 346653522121)) or (switch = 346653522121 and ((vlanId=1000 and ip4Dst=104.16.65.50 and tcpDstPort=443) or (vlanId=1000 and ip4Dst=104.16.66.50 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=89.30.121.150 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=151.101.146.217 and tcpDstPort=443) or ipProto = 17)))\"))(Bind config(Var alice_cred)(Apply(TyApply(Var config)(Extend(Program\"(filter (not (switch = 346653522121)) or (switch = 346653522121 and ((vlanId=1000 and ip4Dst=104.16.65.50 and tcpDstPort=443) or (vlanId=1000 and ip4Dst=104.16.66.50 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=89.30.121.150 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=151.101.146.217 and tcpDstPort=443) or ipProto = 17)))\")))(Var extend_cred)))))",
+  "tenv": [
+    {
+      "key": "alice_cred",
+      "type":
+        "(Says(Principal fgL5t8ra/C8tw00fIPslt51jbl3kNKQ/nejKTQJocZY=)(Forall X(Fun(Says(Principal qMtiPo/TjSKg6R3zPv+Q3EQTKVVf4Y3WyNyMywLeQ/Y=)(TVar X))(Says(Principal fgL5t8ra/C8tw00fIPslt51jbl3kNKQ/nejKTQJocZY=)(TVar X)))))"
+    },
+    {
+      "key": "extend_cred",
+      "type":
+        "(Says(Principal qMtiPo/TjSKg6R3zPv+Q3EQTKVVf4Y3WyNyMywLeQ/Y=)(Extend(Program\"(filter (not (switch = 346653522121)) or (switch = 346653522121 and ((vlanId=1000 and ip4Dst=104.16.65.50 and tcpDstPort=443) or (vlanId=1000 and ip4Dst=104.16.66.50 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=89.30.121.150 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=151.101.146.217 and tcpDstPort=443) or ipProto = 17)))\")))"
+    },
+    {
+      "key": "fedmem_cred",
+      "type":
+        "(Says(Principal FcC3bAPSaKshn7sJKyy6hyk5T1u5mthkmqx6tPJ81ug=)(Forall X(Fun(Says(Principal fgL5t8ra/C8tw00fIPslt51jbl3kNKQ/nejKTQJocZY=)(Extend(TVar X)))(Says(Principal FcC3bAPSaKshn7sJKyy6hyk5T1u5mthkmqx6tPJ81ug=)(Extend(TVar X))))))"
+    }
+  ],
+  "tscope": [],
+  "prog":
+    "(filter (not (switch = 346653522121)) or (switch = 346653522121 and ((vlanId=1000 and ip4Dst=104.16.65.50 and tcpDstPort=443) or (vlanId=1000 and ip4Dst=104.16.66.50 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=89.30.121.150 and tcpDstPort=443) or (vlanId=1001 and ip4Dst=151.101.146.217 and tcpDstPort=443) or ipProto = 17)))"
+}

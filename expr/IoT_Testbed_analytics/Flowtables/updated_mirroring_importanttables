@@ -1,0 +1,236 @@
+Without VLAN:
+[DEBUG] Setting up flow table
++-----------------------------------------------------------+
+| 346653522121 | Pattern | Action                           |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.65.50  | Output(InPort)                   |
+| EthType = 0x800 (ip)   | + Output(2)                      |
+|                        | + Output(InPort)                 |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.65.50  | Output(InPort)                   |
+| EthType = 0x806 (arp)  | + Output(2)                      |
+|                        | + Output(InPort)                 |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + Output(2)                      |
+| IP4Dst = 104.16.66.50  | + Output(InPort)                 |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + Output(2)                      |
+| IP4Dst = 104.16.66.50  | + Output(InPort)                 |
+| EthType = 0x806 (arp)  |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | Output(2)                        |
+| ipProto = 0x11 (udp)   | + Output(InPort)                 |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.65.50  | + SetField(ipDst, 129.21.61.113) |
+| EthType = 0x800 (ip)   | Output(InPort)                   |
+|                        | + Output(2)                      |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.65.50  | + SetField(ipDst, 129.21.61.113) |
+| EthType = 0x806 (arp)  | Output(InPort)                   |
+|                        | + Output(2)                      |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.66.50  | + Output(2)                      |
+| EthType = 0x800 (ip)   | + Output(InPort)                 |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.66.50  | + Output(2)                      |
+| EthType = 0x806 (arp)  | + Output(InPort)                 |
+|-----------------------------------------------------------|
+| InPort = 1             | Output(2)                        |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 104.16.66.50)  |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| EthType = 0x800 (ip)   | + SetField(ipDst, 129.21.61.113) |
+|                        | Output(1)                        |
+|                        | + Output(1)                      |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 104.16.66.50)  |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| EthType = 0x806 (arp)  | + SetField(ipDst, 129.21.61.113) |
+|                        | Output(1)                        |
+|                        | + Output(1)                      |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| EthType = 0x800 (ip)   | + Output(1)                      |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| EthType = 0x806 (arp)  | + Output(1)                      |
+|-----------------------------------------------------------|
+| ipProto = 0x11 (udp)   | Output(2)                        |
+| EthType = 0x800 (ip)   | + Output(1)                      |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 104.16.66.50)    |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| EthType = 0x800 (ip)   | + SetField(ipDst, 129.21.61.113) |
+|                        | Output(1)                        |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 104.16.66.50)    |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| EthType = 0x806 (arp)  | + SetField(ipDst, 129.21.61.113) |
+|                        | Output(1)                        |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 129.21.61.113)   |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| EthType = 0x800 (ip)   | + Output(1)                      |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 129.21.61.113)   |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| EthType = 0x806 (arp)  | + Output(1)                      |
+|-----------------------------------------------------------|
+|                        |                                  |
++-----------------------------------------------------------+
+
+With VLAN:
+[DEBUG] Setting up flow table
++-----------------------------------------------------------+
+| 346653522121 | Pattern | Action                           |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.65.50  | Output(InPort)                   |
+| Vlan = 1000            | + Output(2)                      |
+| EthType = 0x800 (ip)   | + Output(InPort)                 |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.65.50  | Output(InPort)                   |
+| Vlan = 1000            | + Output(2)                      |
+| EthType = 0x806 (arp)  | + Output(InPort)                 |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + Output(2)                      |
+| IP4Dst = 104.16.66.50  | + Output(InPort)                 |
+| Vlan = 1000            |                                  |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| ipProto = 0x11 (udp)   | + Output(2)                      |
+| IP4Dst = 104.16.66.50  | + Output(InPort)                 |
+| Vlan = 1000            |                                  |
+| EthType = 0x806 (arp)  |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | Output(2)                        |
+| ipProto = 0x11 (udp)   | + Output(InPort)                 |
+| Vlan = 1000            |                                  |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.65.50  | + SetField(ipDst, 129.21.61.113) |
+| Vlan = 1000            | Output(InPort)                   |
+| EthType = 0x800 (ip)   | + Output(2)                      |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 104.16.66.50)    |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.65.50  | + SetField(ipDst, 129.21.61.113) |
+| Vlan = 1000            | Output(InPort)                   |
+| EthType = 0x806 (arp)  | + Output(2)                      |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.66.50  | + Output(2)                      |
+| Vlan = 1000            | + Output(InPort)                 |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | SetField(ipDst, 129.21.61.113)   |
+| TCPDstPort = 443       | Output(InPort)                   |
+| IP4Dst = 104.16.66.50  | + Output(2)                      |
+| Vlan = 1000            | + Output(InPort)                 |
+| EthType = 0x806 (arp)  |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | Output(2)                        |
+| Vlan = 1000            |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | Output(2)                        |
+| ipProto = 0x11 (udp)   | + Output(InPort)                 |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| InPort = 1             | Output(2)                        |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 104.16.66.50)  |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| Vlan = 1000            | + SetField(ipDst, 129.21.61.113) |
+| EthType = 0x800 (ip)   | Output(1)                        |
+|                        | + Output(1)                      |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 104.16.66.50)  |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| Vlan = 1000            | + SetField(ipDst, 129.21.61.113) |
+| EthType = 0x806 (arp)  | Output(1)                        |
+|                        | + Output(1)                      |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| Vlan = 1000            | + Output(1)                      |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | Output(2)                        |
+| ipProto = 0x11 (udp)   | + SetField(ipDst, 129.21.61.113) |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| Vlan = 1000            | + Output(1)                      |
+| EthType = 0x806 (arp)  |                                  |
+|-----------------------------------------------------------|
+| ipProto = 0x11 (udp)   | Output(2)                        |
+| Vlan = 1000            | + Output(1)                      |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 104.16.66.50)    |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| Vlan = 1000            | + SetField(ipDst, 129.21.61.113) |
+| EthType = 0x800 (ip)   | Output(1)                        |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 104.16.66.50)    |
+| IP4Dst = 104.16.65.50  | Output(1)                        |
+| Vlan = 1000            | + SetField(ipDst, 129.21.61.113) |
+| EthType = 0x806 (arp)  | Output(1)                        |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 129.21.61.113)   |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| Vlan = 1000            | + Output(1)                      |
+| EthType = 0x800 (ip)   |                                  |
+|-----------------------------------------------------------|
+| TCPDstPort = 443       | SetField(ipDst, 129.21.61.113)   |
+| IP4Dst = 104.16.66.50  | Output(1)                        |
+| Vlan = 1000            | + Output(1)                      |
+| EthType = 0x806 (arp)  |                                  |
+|-----------------------------------------------------------|
+| Vlan = 1000            |                                  |
+|-----------------------------------------------------------|
+| ipProto = 0x11 (udp)   | Output(2)                        |
+| EthType = 0x800 (ip)   | + Output(1)                      |
+|-----------------------------------------------------------|
+|                        |                                  |
++-----------------------------------------------------------+
+

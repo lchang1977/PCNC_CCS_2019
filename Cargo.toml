@@ -1,0 +1,12 @@
+[package]
+name = "pcnc_crypto"
+version = "0.1.0"
+authors = ["John Ring <johnhringiv@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+ring = "0.14.5"
+untrusted = "0.6.2"
+clap = "2.31.23"
+base64 = "0.10.1"
+regex = "1"

@@ -1,0 +1,33 @@
+digraph g1{
+
+    h1[type=host, ip="10.0.0.1"];
+    h2[type=host, ip="10.0.0.2"];
+    h3[type=host, ip="10.0.0.3"];
+    h4[type=host, ip="10.0.0.4"];
+    
+    sh1[type=switch, ip="11.0.0.1", id=1]'
+    sh2[type=switch, ip="11.0.0.2", id=2]'
+    er[type=switch, ip="11.0.0.3", id=3]'
+    gs[type=switch, ip="11.0.0.4", id=4]'
+    
+    h1->sh1[src_port=0, dst_port=1, cost=1];
+    sh1->h1[src_port=1, dst_port=0, cost=1];
+    
+    h2->sh2[src_port=0, dst_port=1, cost=1];
+    sh2->h2[src_port=1, dst_port=0, cost=1];
+    
+    sh1->er[src_port=2, dst_port=3, cost=1];
+    er->sh1[src_port=3, dst_port=2, cost=1];
+    
+    sh2->er[src_port=2, dst_port=2, cost=1];
+    er->sh2[src_port=2, dst_port=2, cost=1];
+    
+    gs->er[src_port=2, dst_port=1, cost=1];
+    er->gs[src_port=1, dst_port=2, cost=1];
+    
+    gs->h3[src_port=3, dst_port=0, cost=1];
+    h3->gs[src_port=0, dst_port=3, cost=1];
+    
+    gs->h4[src_port=4, dst_port=0, cost=1];
+    h4->gs[src_port=0, dst_port=4, cost=1];
+}
